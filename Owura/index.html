@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debtors & Profits Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-line"></i> Debtors & Profits Tracker</h1>
+            <div class="header-actions">
+                <button onclick="exportData()" class="btn btn-secondary">
+                    <i class="fas fa-download"></i> Export Data
+                </button>
+                <button onclick="importData()" class="btn btn-secondary">
+                    <i class="fas fa-upload"></i> Import Data
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon income">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Total Profits</h3>
+                        <p class="stat-amount" id="totalProfits">$0.00</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon debt">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Total Owed</h3>
+                        <p class="stat-amount" id="totalOwed">$0.00</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon debtors">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Active Debtors</h3>
+                        <p class="stat-number" id="activeDebtors">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon collected">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Collected This Month</h3>
+                        <p class="stat-amount" id="monthlyCollected">$0.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-container">
+                    <h3>Recent Activity</h3>
+                    <div id="recentActivity" class="activity-list"></div>
+                </div>
+                <div class="chart-container">
+                    <h3>Payment Status</h3>
+                    <canvas id="paymentChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Debtors Section -->
+        <section id="debtors" class="section">
+            <div class="section-header">
+                <h2>Debtors Management</h2>
+                <button onclick="showAddDebtorModal()" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Debtor
+                </button>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="debtorSearch" placeholder="Search debtors..." onkeyup="filterDebtors()">
+                <select id="statusFilter" onchange="filterDebtors()">
+                    <option value="">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="partial">Partial</option>
+                    <option value="paid">Paid</option>
+                    <option value="overdue">Overdue</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table id="debtorsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Amount Owed</th>
+                            <th>Amount Paid</th>
+                            <th>Balance</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="debtorsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Profits Section -->
+        <section id="profits" class="section">
+            <div class="section-header">
+                <h2>Profits & Income</h2>
+                <button onclick="showAddProfitModal()" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Profit
+                </button>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="profitSearch" placeholder="Search transactions..." onkeyup="filterProfits()">
+                <select id="profitFilter" onchange="filterProfits()">
+                    <option value="">All Types</option>
+                    <option value="sale">Sale</option>
+                    <option value="service">Service</option>
+                    <option value="investment">Investment</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table id="profitsTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Payment Method</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="profitsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <button class="nav-btn active" onclick="showSection('dashboard')">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </button>
+            <button class="nav-btn" onclick="showSection('debtors')">
+                <i class="fas fa-users"></i> Debtors
+            </button>
+            <button class="nav-btn" onclick="showSection('profits')">
+                <i class="fas fa-chart-line"></i> Profits
+            </button>
+        </nav>
+    </div>
+
+    <!-- Modals -->
+    <div id="addDebtorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addDebtorModal')">&times;</span>
+            <h3>Add New Debtor</h3>
+            <form id="addDebtorForm">
+                <div class="form-group">
+                    <label for="debtorName">Name *</label>
+                    <input type="text" id="debtorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="debtorContact">Contact Info</label>
+                    <input type="text" id="debtorContact">
+                </div>
+                <div class="form-group">
+                    <label for="debtorAmount">Amount Owed *</label>
+                    <input type="number" id="debtorAmount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="debtorDueDate">Due Date *</label>
+                    <input type="date" id="debtorDueDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="debtorNotes">Notes</label>
+                    <textarea id="debtorNotes"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="closeModal('addDebtorModal')" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Debtor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="addProfitModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addProfitModal')">&times;</span>
+            <h3>Add Profit Entry</h3>
+            <form id="addProfitForm">
+                <div class="form-group">
+                    <label for="profitDate">Date *</label>
+                    <input type="date" id="profitDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="profitDescription">Description *</label>
+                    <input type="text" id="profitDescription" required>
+                </div>
+                <div class="form-group">
+                    <label for="profitCategory">Category *</label>
+                    <select id="profitCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="sale">Sale</option>
+                        <option value="service">Service</option>
+                        <option value="investment">Investment</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="profitAmount">Amount *</label>
+                    <input type="number" id="profitAmount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="profitPaymentMethod">Payment Method</label>
+                    <select id="profitPaymentMethod">
+                        <option value="cash">Cash</option>
+                        <option value="mobile_money">Mobile Money</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="card">Credit Card</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="closeModal('addProfitModal')" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Profit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('paymentModal')">&times;</span>
+            <h3>Record Payment</h3>
+            <form id="paymentForm">
+                <input type="hidden" id="paymentDebtorId">
+                <div class="form-group">
+                    <label for="paymentAmount">Payment Amount *</label>
+                    <input type="number" id="paymentAmount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentDate">Payment Date *</label>
+                    <input type="date" id="paymentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod">
+                        <option value="cash">Cash</option>
+                        <option value="mobile_money">Mobile Money</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="card">Credit Card</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="paymentNotes">Notes</label>
+                    <textarea id="paymentNotes"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="closeModal('paymentModal')" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Record Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <input type="file" id="importFile" style="display: none;" accept=".json">
+
+    <script src="script.js"></script>
+</body>
+</html>

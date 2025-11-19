@@ -1,0 +1,33 @@
+Serving HTTP on 0.0.0.0 port 8085 (http://0.0.0.0:8085/) ...
+127.0.0.1 - - [18/Nov/2025 04:10:07] "GET /?_gl=1*4q2zza*_gcl_au*MTc1NDQyMTU4MS4xNzYzNDM4NDk3LjE3MjM3ODYyOS4xNzYzNDM4NTI1LjE3NjM0Mzg1MjU.*_ga*MTkyNjM1NjYwNS4xNzYzNDM4NDk2*_ga_8NW18Q4WF2*czE3NjM0Mzg0OTYkbzEkZzEkdDE3NjM0Mzg4MDIkajYwJGwwJGgxOTIwMTc0NDc2&password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:10:09] "GET /script.js?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:10:09] "GET /styles.css?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:10:11] code 404, message File not found
+127.0.0.1 - - [18/Nov/2025 04:10:11] "GET /favicon.ico?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 404 -
+127.0.0.1 - - [18/Nov/2025 04:11:13] code 404, message File not found
+127.0.0.1 - - [18/Nov/2025 04:11:13] "GET /apple-touch-icon-precomposed.png?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 404 -
+127.0.0.1 - - [18/Nov/2025 04:11:13] code 404, message File not found
+127.0.0.1 - - [18/Nov/2025 04:11:13] "GET /apple-touch-icon.png?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 404 -
+127.0.0.1 - - [18/Nov/2025 04:11:13] code 404, message File not found
+127.0.0.1 - - [18/Nov/2025 04:11:13] "GET /favicon.ico?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 404 -
+127.0.0.1 - - [18/Nov/2025 04:12:07] "GET /?_gl=1*4q2zza*_gcl_au*MTc1NDQyMTU4MS4xNzYzNDM4NDk3LjE3MjM3ODYyOS4xNzYzNDM4NTI1LjE3NjM0Mzg1MjU.*_ga*MTkyNjM1NjYwNS4xNzYzNDM4NDk2*_ga_8NW18Q4WF2*czE3NjM0Mzg0OTYkbzEkZzEkdDE3NjM0Mzg4MDIkajYwJGwwJGgxOTIwMTc0NDc2&password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:12:08] "GET /styles.css?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:12:08] "GET /script.js?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:13:30] "GET /?_gl=1*4q2zza*_gcl_au*MTc1NDQyMTU4MS4xNzYzNDM4NDk3LjE3MjM3ODYyOS4xNzYzNDM4NTI1LjE3NjM0Mzg1MjU.*_ga*MTkyNjM1NjYwNS4xNzYzNDM4NDk2*_ga_8NW18Q4WF2*czE3NjM0Mzg0OTYkbzEkZzEkdDE3NjM0Mzg4MDIkajYwJGwwJGgxOTIwMTc0NDc2&password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:13:30] "GET /styles.css?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:13:30] "GET /script.js?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:14:18] "GET /?_gl=1*4q2zza*_gcl_au*MTc1NDQyMTU4MS4xNzYzNDM4NDk3LjE3MjM3ODYyOS4xNzYzNDM4NTI1LjE3NjM0Mzg1MjU.*_ga*MTkyNjM1NjYwNS4xNzYzNDM4NDk2*_ga_8NW18Q4WF2*czE3NjM0Mzg0OTYkbzEkZzEkdDE3NjM0Mzg4MDIkajYwJGwwJGgxOTIwMTc0NDc2&password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:14:19] "GET /styles.css?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:14:19] "GET /script.js?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:14:19] "GET /styles.css?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:17:42] "GET /?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:17:43] "GET /script.js?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:17:43] "GET /styles.css?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:17:54] "GET /?_gl=1*4q2zza*_gcl_au*MTc1NDQyMTU4MS4xNzYzNDM4NDk3LjE3MjM3ODYyOS4xNzYzNDM4NTI1LjE3NjM0Mzg1MjU.*_ga*MTkyNjM1NjYwNS4xNzYzNDM4NDk2*_ga_8NW18Q4WF2*czE3NjM0Mzg0OTYkbzEkZzEkdDE3NjM0Mzg4MDIkajYwJGwwJGgxOTIwMTc0NDc2&password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:18:03] "GET /script.js?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:18:03] "GET /styles.css?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:18:38] "GET /?_gl=1*1ioydlz*_gcl_au*MTc1NDQyMTU4MS4xNzYzNDM4NDk3LjE3MjM3ODYyOS4xNzYzNDM4NTI1LjE3NjM0Mzg1MjU.*_ga*MTkyNjM1NjYwNS4xNzYzNDM4NDk2*_ga_8NW18Q4WF2*czE3NjM0Mzg0OTYkbzEkZzEkdDE3NjM0Mzg4MDIkajYwJGwwJGgxOTIwMTc0NDc2&password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:18:38] "GET /script.js?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:22:54] "GET /?_gl=1*1ioydlz*_gcl_au*MTc1NDQyMTU4MS4xNzYzNDM4NDk3LjE3MjM3ODYyOS4xNzYzNDM4NTI1LjE3NjM0Mzg1MjU.*_ga*MTkyNjM1NjYwNS4xNzYzNDM4NDk2*_ga_8NW18Q4WF2*czE3NjM0Mzg0OTYkbzEkZzEkdDE3NjM0Mzg4MDIkajYwJGwwJGgxOTIwMTc0NDc2&password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:22:55] "GET /styles.css?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
+127.0.0.1 - - [18/Nov/2025 04:22:55] "GET /script.js?password=126a480a-e329-4fa4-9213-e8df964f526e HTTP/1.1" 200 -
